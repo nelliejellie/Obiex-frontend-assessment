@@ -8,7 +8,7 @@ function MovieCard({movie}) {
     }
   return (
     <div onClick={() =>handleNavigation(movie.id)}>
-        <div className='w-[199px] h-[266px] bg-[#CEE8EF] rounded-sm'>
+        <div className='w-[199px] md:w-[150px] h-[266px] bg-[#CEE8EF] rounded-sm'>
             <img className='h-[100%]' src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}/>
         </div>
         <div className='space-y-4 text-white'>
