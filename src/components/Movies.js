@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 
-function Movies() {
+function Movies({title}) {
     const [data, setData] = useState(null)
 
     useEffect(()=>{
@@ -21,7 +21,7 @@ function Movies() {
   return (
     <section className='ml-20 mt-10'>
         <div className='w-[80%] flex flex-row items-center justify-between'>
-            <h2 className='text-white mb-4'>Movies for you</h2>
+            <h2 className='text-white mb-4'>{title}</h2>
             <div className='flex flex-row space-x-4'>
                 <AiOutlineArrowLeft className='text-blue-400 text-sm border border-blue-400 rounded-full'/>
                 <AiOutlineArrowRight className='text-blue-400 text-sm border border-blue-400 rounded-full'/>

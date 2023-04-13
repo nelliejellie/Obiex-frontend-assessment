@@ -8,8 +8,8 @@ function Home() {
   return (
     <div className="bg-[#1B1F32]">
         <Navbar/>
-        <Banner/>
-        <Movies/>
+        <Banner movie={null}/>
+        <Movies title="Movies for you"/>
         <Footer/>
     </div>
   )

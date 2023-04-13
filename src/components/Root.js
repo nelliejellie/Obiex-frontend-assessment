@@ -7,7 +7,7 @@ function Root() {
     <>
         <div>
           <Link to='/'></Link>
-          <Link to='/details'></Link>
+          <Link to='/details/:id'></Link>
         </div>
         <div>
           <Outlet/>
