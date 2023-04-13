@@ -7,7 +7,7 @@ function Navbar() {
         <div className='flex flex-row items-center space-x-2'>
             <img 
                 src={require('../assets/images/logo.png')}
-                className=''
+                alt='logo'
             />
             <span className='text-white font-bold'>Vader</span>
         </div>

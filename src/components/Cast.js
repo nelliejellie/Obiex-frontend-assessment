@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import ActorCard from './ActorCard';
