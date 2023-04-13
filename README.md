@@ -1,1 +1,1 @@
-# run npm install on your local environment to run this application
+# run 'npm install' on your terminal on your local environment to run this application
