@@ -5,6 +5,7 @@ function MovieCard({movie}) {
     const navigate = useNavigate();
     const handleNavigation = (id) =>{
         navigate(`/details/${id}`);
+        window.location.reload()
     }
   return (
     <div onClick={() =>handleNavigation(movie.id)}>
