@@ -8,7 +8,7 @@ import axios from 'axios';
 
 function Movies({title, showRecommended}) {
     const [data, setData] = useState(null)
-
+    console.log(showRecommended)
     useEffect(()=>{
         getMovies()
     },[])

@@ -9,7 +9,7 @@ function Home() {
     <div className="bg-[#1B1F32]">
         <Navbar/>
         <Banner movie={null}/>
-        <Movies title="Movies for you"/>
+        <Movies title="Movies for you" showRecommended={true}/>
         <Footer/>
     </div>
   )

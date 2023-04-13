@@ -16,7 +16,7 @@ function Navbar() {
                 <BsSearch className='text-white'/>
                 <input type="text" placeholder='Search' className='outline-0 bg-[#1D283C] text-white'/>
             </div>
-            <BsSearch className='text-white w-[24px] h-[24px]'/>
+            <BsSearch className='md:text-white md:w-[24px] md:h-[24px] hidden'/>
         </div>
     </section>
   )
