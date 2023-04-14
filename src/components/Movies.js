@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import MovieCard from './MovieCard'
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
@@ -8,7 +8,11 @@ import axios from 'axios';
 
 function Movies({title, showRecommended}) {
     const [data, setData] = useState(null)
-    console.log(showRecommended)
+    const [scrollX, setscrollX] = useState(0);
+    const [scrolEnd, setscrolEnd] = useState(false);
+    const scrl = useRef()
+
+    
     useEffect(()=>{
         getMovies()
     },[])
@@ -18,19 +22,35 @@ function Movies({title, showRecommended}) {
         .then(response => setData(response.data.results))
         .catch(error => console.log(error));
     }
+
+    // for scrolling
+    const slide = (shift) => {
+        scrl.current.scrollLeft += shift;
+        setscrollX(scrollX + shift); // Updates the latest scrolled postion
+
+        //For checking if the scroll has ended
+        if (
+        Math.floor(scrl.current.scrollWidth - scrl.current.scrollLeft) <=
+        scrl.current.offsetWidth
+        ) {
+        setscrolEnd(true);
+        } else {
+        setscrolEnd(false);
+        }
+    };
   return (
-    <section className='ml-20 md:ml-4 mt-10'>
+    <section className='ml-20 md:ml-4 mt-10 '>
         {
             showRecommended &&
             <>
                 <div className='w-[80%] flex flex-row items-center justify-between md:hidden'>
                     <h2 className='text-white mb-4'>{title}</h2>
                     <div className='flex flex-row space-x-4'>
-                        <AiOutlineArrowLeft className='text-blue-400 text-sm border border-blue-400 rounded-full'/>
-                        <AiOutlineArrowRight className='text-blue-400 text-sm border border-blue-400 rounded-full'/>
+                        <AiOutlineArrowLeft onClick={() => slide(-50)} className='text-blue-400 text-sm border border-blue-400 rounded-full'/>
+                        <AiOutlineArrowRight onClick={() => slide(+50)} className='text-blue-400 text-sm border border-blue-400 rounded-full'/>
                     </div>
                 </div>
-                <div className='flex flex-row space-x-2 overflow-auto md:grid md:grid-cols-2 md:gap-4'>
+                <div ref={scrl} className='flex flex-row space-x-2 overflow-hidden md:grid md:grid-cols-2 md:gap-4'>
                     {
                         data?.map(item => (
                             <MovieCard key={item.id} movie={item}/>
